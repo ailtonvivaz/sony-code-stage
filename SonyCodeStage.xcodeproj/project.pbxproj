@@ -56,6 +56,32 @@
 		5EC0C80F254DB6100021A42A /* SonyCodeStage */ = {
 			isa = PBXGroup;
 			children = (
+				5EC0C827254DB6350021A42A /* Supporting Files */,
+				5EC0C825254DB61D0021A42A /* Resources */,
+				5EC0C826254DB62B0021A42A /* Source */,
+			);
+			path = SonyCodeStage;
+			sourceTree = "<group>";
+		};
+		5EC0C825254DB61D0021A42A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5EC0C826254DB62B0021A42A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5EC0C829254DB6650021A42A /* Model */,
+				5EC0C828254DB6570021A42A /* Controller */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5EC0C827254DB6350021A42A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				5EC0C810254DB6100021A42A /* AppDelegate.swift */,
 				5EC0C812254DB6100021A42A /* SceneDelegate.swift */,
 				5EC0C814254DB6100021A42A /* ViewController.swift */,
@@ -64,7 +90,21 @@
 				5EC0C81B254DB6120021A42A /* LaunchScreen.storyboard */,
 				5EC0C81E254DB6120021A42A /* Info.plist */,
 			);
-			path = SonyCodeStage;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5EC0C828254DB6570021A42A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5EC0C829254DB6650021A42A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
