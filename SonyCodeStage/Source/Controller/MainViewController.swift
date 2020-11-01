@@ -185,6 +185,11 @@ class MainViewController: UIViewController {
         pulseAnimation.repeatCount = .greatestFiniteMagnitude
         self.innerCircleView.layer.add(pulseAnimation, forKey: "pulseAnimation")
     }
-
+    
+    @IBAction func onClickMood(_ sender: Any) {
+        let vc = ConfigurationViewController()
+        self.present(vc, animated: true)
+    }
+    
 }
 

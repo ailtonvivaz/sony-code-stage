@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -70,6 +70,9 @@
                                             <state key="normal" image="pause.fill" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickPlayPause:" destination="-1" eventType="touchUpInside" id="5Pe-7U-Xbv"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -96,6 +99,9 @@
                                     <state key="normal" image="forward.fill" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onClickNext:" destination="-1" eventType="touchUpInside" id="rFb-gi-Nqx"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

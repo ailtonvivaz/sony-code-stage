@@ -17,14 +17,23 @@ class ConfigurationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        moods = Mood.allCases
-        tasks = Task.allCases
+        moods = Mood.allCases.shuffled()
+        tasks = Task.allCases.shuffled()
 
         taskPicker.delegate = self
         taskPicker.dataSource = self
 
         feelingsPicker.delegate = self
         feelingsPicker.dataSource = self
+        
+        if MusicPlayer.shared.mood == nil {
+            MusicPlayer.shared.mood = moods[0]
+            MusicPlayer.shared.task = tasks[0]
+        } else {
+            feelingsPicker.selectRow(moods.firstIndex(of: MusicPlayer.shared.mood!)!, inComponent: 0, animated: true)
+            taskPicker.selectRow(tasks.firstIndex(of: MusicPlayer.shared.task!)!, inComponent: 0, animated: true)
+        }
+        
     }
 
     @IBAction func handleContinuar(_ sender: Any) {

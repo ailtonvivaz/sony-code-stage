@@ -8,19 +8,26 @@
 import UIKit
 
 class PlayingViewController: UIViewController {
-
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var nextCoverImageView: UIImageView!
-    @IBOutlet weak var forwardButton: UIButton!
-    @IBOutlet weak var songNameLabel: UILabel!
-    @IBOutlet weak var songArtistLabel: UILabel!
+    @IBOutlet var playButton: UIButton!
+    @IBOutlet var coverImageView: UIImageView!
+    @IBOutlet var nextCoverImageView: UIImageView!
+    @IBOutlet var forwardButton: UIButton!
+    @IBOutlet var songNameLabel: UILabel!
+    @IBOutlet var songArtistLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Ouvindo"
+        title = "Ouvindo"
 
         setupTheme()
+        
+        MusicPlayer.shared.onChangeSong = { song in
+            print(song)
+        }
+        
+        MusicPlayer.shared.onChangeNextSong = { song in
+            print(song)
+        }
     }
 
     func setupTheme() {
@@ -30,16 +37,24 @@ class PlayingViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        playButton.layer.cornerRadius = playButton.frame.width/2
+        playButton.layer.cornerRadius = playButton.frame.width / 2
     }
 
     init() {
         super.init(nibName: "\(Self.self)", bundle: nil)
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @IBAction func onClickPlayPause(_ sender: Any) {
+        MusicPlayer.shared.playPause()
+    }
+
+    @IBAction func onClickNext(_ sender: Any) {
+        MusicPlayer.shared.next()
+    }
 }
