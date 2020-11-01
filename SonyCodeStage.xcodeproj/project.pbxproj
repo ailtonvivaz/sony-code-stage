@@ -16,6 +16,7 @@
 		5E9F2BA5254F31CF005CC0C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */; };
 		5E9F2BA8254F532D005CC0C9 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA7254F532D005CC0C9 /* MusicPlayer.swift */; };
 		5E9F2BB1254F5FDD005CC0C9 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BB0254F5FDD005CC0C9 /* Mood.swift */; };
+		5E9F2BB5254F6142005CC0C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BB4254F6142005CC0C9 /* Task.swift */; };
 		5EC0C811254DB6100021A42A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C810254DB6100021A42A /* AppDelegate.swift */; };
 		5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C812254DB6100021A42A /* SceneDelegate.swift */; };
 		5EC0C815254DB6100021A42A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C814254DB6100021A42A /* MainViewController.swift */; };
@@ -37,6 +38,7 @@
 		5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E9F2BA7254F532D005CC0C9 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		5E9F2BB0254F5FDD005CC0C9 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		5E9F2BB4254F6142005CC0C9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5EC0C80D254DB6100021A42A /* SonyCodeStage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyCodeStage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC0C810254DB6100021A42A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC0C812254DB6100021A42A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				5E9F2BA1254F2D78005CC0C9 /* Song.swift */,
 				5E9F2BA7254F532D005CC0C9 /* MusicPlayer.swift */,
 				5E9F2BB0254F5FDD005CC0C9 /* Mood.swift */,
+				5E9F2BB4254F6142005CC0C9 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				5E9F2BB1254F5FDD005CC0C9 /* Mood.swift in Sources */,
 				5E9F2B9E254F2C3F005CC0C9 /* MusicService.swift in Sources */,
 				5EC0C815254DB6100021A42A /* MainViewController.swift in Sources */,
+				5E9F2BB5254F6142005CC0C9 /* Task.swift in Sources */,
 				5EC0C811254DB6100021A42A /* AppDelegate.swift in Sources */,
 				6300001B254F3E0E00F569B5 /* PlayingViewController.swift in Sources */,
 				5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */,
