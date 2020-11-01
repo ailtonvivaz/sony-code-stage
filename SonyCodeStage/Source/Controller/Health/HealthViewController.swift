@@ -9,6 +9,8 @@ import HealthKit
 import UIKit
 
 class HealthViewController: UIViewController {
+    let healthStore = HKHealthStore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +19,6 @@ class HealthViewController: UIViewController {
     }
 
     func fetchHealthData() {
-        let healthStore = HKHealthStore()
         if HKHealthStore.isHealthDataAvailable() {
             let readData = Set([
                 HKObjectType.quantityType(forIdentifier: .heartRate)!
@@ -28,11 +29,7 @@ class HealthViewController: UIViewController {
                     let calendar = NSCalendar.current
                 
                     var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday, .hour, .minute], from: NSDate() as Date)
-
-                    let offset = (7 + anchorComponents.weekday! - 2) % 7
-
-//                    anchorComponents.day! -= offset
-//                    anchorComponents.hour = 2
+                    anchorComponents.minute! -= 1
 
                     guard let anchorDate = Calendar.current.date(from: anchorComponents) else {
                         fatalError("*** unable to create a valid date from the given components ***")
@@ -83,7 +80,7 @@ class HealthViewController: UIViewController {
                         }
                     }
                 
-                    healthStore.execute(query)
+                    self.healthStore.execute(query)
                 
                 } else {
                     print("Authorization failed")
