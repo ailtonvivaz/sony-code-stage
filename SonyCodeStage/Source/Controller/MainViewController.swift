@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
     }
 
     func setupMoodTask() {
+        moodTaskButton.setTitle("", for: .normal)
         if let mood = MusicPlayer.shared.mood, let task = MusicPlayer.shared.task {
             moodTaskButton.setTitle("\(task.rawValue) & \(mood.rawValue)", for: .normal)
         } else {
