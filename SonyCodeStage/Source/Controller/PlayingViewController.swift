@@ -59,6 +59,11 @@ class PlayingViewController: UIViewController {
     }
 
     @IBAction func onClickPlayPause(_ sender: Any) {
+        if MusicPlayer.shared.isPlaying {
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        } else {
+            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        }
         MusicPlayer.shared.playPause()
     }
 

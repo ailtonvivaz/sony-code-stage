@@ -22,6 +22,8 @@ class MusicPlayer {
 
     var currentSong: Song?
     var nextSong: Song?
+    
+    var isPlaying: Bool { player.playbackState == .playing }
 
     var onChangeSong: (Song) -> Void = { _ in }
     var onChangeNextSong: (Song) -> Void = { _ in }
@@ -33,7 +35,7 @@ class MusicPlayer {
     }
 
     func playPause() {
-        if player.playbackState == .playing {
+        if isPlaying {
             player.pause()
         } else {
             player.play()

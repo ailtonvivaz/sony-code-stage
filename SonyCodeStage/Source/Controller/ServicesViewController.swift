@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class ServicesViewController: UIViewController {
 
@@ -33,9 +34,13 @@ class ServicesViewController: UIViewController {
     }
 
     @objc func handleVincular() {
-        vincularButton.isHidden = true
-        vincularLabel.text = "Conectado"
-        continuarButton.isEnabled = true
+        SKCloudServiceController.requestAuthorization { status in
+            if status == .authorized {
+                self.vincularButton.isHidden = true
+                self.vincularLabel.text = "Conectado"
+                self.continuarButton.isEnabled = true
+            }
+        }
     }
 
     @objc func handleContinuar() {
