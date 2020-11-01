@@ -11,6 +11,9 @@
 		5E462350254E09C7008D301C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46234F254E09C7008D301C /* UIViewController+Extension.swift */; };
 		5E462359254E17FE008D301C /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E462357254E17FE008D301C /* HealthViewController.swift */; };
 		5E46235A254E17FE008D301C /* HealthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E462358254E17FE008D301C /* HealthViewController.xib */; };
+		5E9F2B9E254F2C3F005CC0C9 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2B9D254F2C3F005CC0C9 /* MusicService.swift */; };
+		5E9F2BA2254F2D78005CC0C9 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA1254F2D78005CC0C9 /* Song.swift */; };
+		5E9F2BA5254F31CF005CC0C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */; };
 		5EC0C811254DB6100021A42A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C810254DB6100021A42A /* AppDelegate.swift */; };
 		5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C812254DB6100021A42A /* SceneDelegate.swift */; };
 		5EC0C815254DB6100021A42A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C814254DB6100021A42A /* ViewController.swift */; };
@@ -25,6 +28,9 @@
 		5E46234F254E09C7008D301C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		5E462357254E17FE008D301C /* HealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
 		5E462358254E17FE008D301C /* HealthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthViewController.xib; sourceTree = "<group>"; };
+		5E9F2B9D254F2C3F005CC0C9 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		5E9F2BA1254F2D78005CC0C9 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5EC0C80D254DB6100021A42A /* SonyCodeStage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyCodeStage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC0C810254DB6100021A42A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC0C812254DB6100021A42A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				5E46234F254E09C7008D301C /* UIViewController+Extension.swift */,
+				5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -70,6 +77,14 @@
 				5E462358254E17FE008D301C /* HealthViewController.xib */,
 			);
 			path = Health;
+			sourceTree = "<group>";
+		};
+		5E9F2B9C254F2C0C005CC0C9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F2B9D254F2C3F005CC0C9 /* MusicService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		5EC0C804254DB6100021A42A = {
@@ -110,6 +125,7 @@
 		5EC0C826254DB62B0021A42A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5E9F2B9C254F2C0C005CC0C9 /* Service */,
 				5EC0C829254DB6650021A42A /* Model */,
 				5EC0C828254DB6570021A42A /* Controller */,
 				5E46234E254E08EF008D301C /* Extension */,
@@ -142,6 +158,7 @@
 		5EC0C829254DB6650021A42A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E9F2BA1254F2D78005CC0C9 /* Song.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,7 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9F2BA5254F31CF005CC0C9 /* String+Extension.swift in Sources */,
+				5E9F2BA2254F2D78005CC0C9 /* Song.swift in Sources */,
 				5E462350254E09C7008D301C /* UIViewController+Extension.swift in Sources */,
+				5E9F2B9E254F2C3F005CC0C9 /* MusicService.swift in Sources */,
 				5EC0C815254DB6100021A42A /* ViewController.swift in Sources */,
 				5EC0C811254DB6100021A42A /* AppDelegate.swift in Sources */,
 				5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */,

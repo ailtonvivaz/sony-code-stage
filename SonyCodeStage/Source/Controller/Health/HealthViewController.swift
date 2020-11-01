@@ -6,6 +6,8 @@
 //
 
 import HealthKit
+import MediaPlayer
+import StoreKit
 import UIKit
 
 class HealthViewController: UIViewController {
@@ -13,6 +15,14 @@ class HealthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SKCloudServiceController.requestAuthorization { status in
+            if status == .authorized {
+                MusicService.shared.searchAppleMusic("shallow") { songs in
+                    print(songs)
+                }
+            }
+        }
 
         // Do any additional setup after loading the view.
         fetchHealthData()
