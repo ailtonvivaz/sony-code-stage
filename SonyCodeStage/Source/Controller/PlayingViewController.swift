@@ -9,6 +9,7 @@ import UIKit
 
 class PlayingViewController: UIViewController {
     @IBOutlet var playButton: UIButton!
+    @IBOutlet weak var coverContainerView: UIView!
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var nextCoverImageView: UIImageView!
     @IBOutlet var forwardButton: UIButton!
@@ -39,6 +40,7 @@ class PlayingViewController: UIViewController {
     }
 
     func setupTheme() {
+        coverContainerView.layer.cornerRadius = .cornerRadius
         coverImageView.layer.cornerRadius = .cornerRadius
         nextCoverImageView.layer.cornerRadius = .cornerRadius
     }

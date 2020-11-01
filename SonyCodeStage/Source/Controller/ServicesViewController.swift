@@ -5,14 +5,14 @@
 //  Created by livetouch on 01/11/20.
 //
 
-import UIKit
+import HealthKit
 import StoreKit
+import UIKit
 
 class ServicesViewController: UIViewController {
-
-    @IBOutlet weak var vincularButton: UIButton!
-    @IBOutlet weak var vincularLabel: UILabel!
-    @IBOutlet weak var continuarButton: UIButton!
+    @IBOutlet var vincularButton: UIButton!
+    @IBOutlet var vincularLabel: UILabel!
+    @IBOutlet var continuarButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +44,14 @@ class ServicesViewController: UIViewController {
     }
 
     @objc func handleContinuar() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateInitialViewController() {
-            vc.modalPresentationStyle = .overFullScreen
-            present(vc, animated: true)
+        HealthData.shared.start {
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let vc = storyboard.instantiateInitialViewController() {
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                }
+            }
         }
     }
 
@@ -55,6 +59,7 @@ class ServicesViewController: UIViewController {
         super.init(nibName: "\(Self.self)", bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

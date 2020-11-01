@@ -34,6 +34,8 @@ class ConfigurationViewController: UIViewController {
             taskPicker.selectRow(tasks.firstIndex(of: MusicPlayer.shared.task!)!, inComponent: 0, animated: true)
         }
         
+        continueButton.layer.cornerRadius = .cornerRadius
+        
     }
 
     @IBAction func handleContinuar(_ sender: Any) {

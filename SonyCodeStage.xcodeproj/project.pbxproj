@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5E46234C254E08A5008D301C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E46234B254E08A4008D301C /* HealthKit.framework */; };
 		5E462350254E09C7008D301C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46234F254E09C7008D301C /* UIViewController+Extension.swift */; };
-		5E462359254E17FE008D301C /* HealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E462357254E17FE008D301C /* HealthViewController.swift */; };
-		5E46235A254E17FE008D301C /* HealthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E462358254E17FE008D301C /* HealthViewController.xib */; };
 		5E9F2B9E254F2C3F005CC0C9 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2B9D254F2C3F005CC0C9 /* MusicService.swift */; };
 		5E9F2BA2254F2D78005CC0C9 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA1254F2D78005CC0C9 /* Song.swift */; };
 		5E9F2BA5254F31CF005CC0C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */; };
@@ -19,6 +17,7 @@
 		5E9F2BB5254F6142005CC0C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BB4254F6142005CC0C9 /* Task.swift */; };
 		5E9F2BB8254F62FC005CC0C9 /* SongIA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BB7254F62FC005CC0C9 /* SongIA.swift */; };
 		5E9F2BBB254F65E4005CC0C9 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BBA254F65E4005CC0C9 /* UIImageView+Extension.swift */; };
+		5E9F2BC0254F7EA3005CC0C9 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2BBF254F7EA3005CC0C9 /* HealthData.swift */; };
 		5EC0C811254DB6100021A42A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C810254DB6100021A42A /* AppDelegate.swift */; };
 		5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C812254DB6100021A42A /* SceneDelegate.swift */; };
 		5EC0C815254DB6100021A42A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC0C814254DB6100021A42A /* MainViewController.swift */; };
@@ -37,8 +36,6 @@
 		5E462349254E08A4008D301C /* SonyCodeStage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SonyCodeStage.entitlements; sourceTree = "<group>"; };
 		5E46234B254E08A4008D301C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		5E46234F254E09C7008D301C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		5E462357254E17FE008D301C /* HealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewController.swift; sourceTree = "<group>"; };
-		5E462358254E17FE008D301C /* HealthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthViewController.xib; sourceTree = "<group>"; };
 		5E9F2B9D254F2C3F005CC0C9 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
 		5E9F2BA1254F2D78005CC0C9 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		5E9F2BA4254F31CF005CC0C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -47,6 +44,7 @@
 		5E9F2BB4254F6142005CC0C9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5E9F2BB7254F62FC005CC0C9 /* SongIA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongIA.swift; sourceTree = "<group>"; };
 		5E9F2BBA254F65E4005CC0C9 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		5E9F2BBF254F7EA3005CC0C9 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		5EC0C80D254DB6100021A42A /* SonyCodeStage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyCodeStage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC0C810254DB6100021A42A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC0C812254DB6100021A42A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,15 +89,6 @@
 				5E9F2BBA254F65E4005CC0C9 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		5E462356254E17E7008D301C /* Health */ = {
-			isa = PBXGroup;
-			children = (
-				5E462357254E17FE008D301C /* HealthViewController.swift */,
-				5E462358254E17FE008D301C /* HealthViewController.xib */,
-			);
-			path = Health;
 			sourceTree = "<group>";
 		};
 		5E9F2B9C254F2C0C005CC0C9 /* Service */ = {
@@ -173,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				5EC0C814254DB6100021A42A /* MainViewController.swift */,
-				5E462356254E17E7008D301C /* Health */,
 				63000019254F3E0E00F569B5 /* PlayingViewController.swift */,
 				6300001A254F3E0E00F569B5 /* PlayingViewController.xib */,
 				6300001E254F59E900F569B5 /* ConfigurationViewController.swift */,
@@ -192,6 +180,7 @@
 				5E9F2BB0254F5FDD005CC0C9 /* Mood.swift */,
 				5E9F2BB4254F6142005CC0C9 /* Task.swift */,
 				5E9F2BB7254F62FC005CC0C9 /* SongIA.swift */,
+				5E9F2BBF254F7EA3005CC0C9 /* HealthData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,7 +247,6 @@
 				6300002A254F6BFE00F569B5 /* ServicesViewController.xib in Resources */,
 				5EC0C81D254DB6120021A42A /* LaunchScreen.storyboard in Resources */,
 				5EC0C81A254DB6120021A42A /* Assets.xcassets in Resources */,
-				5E46235A254E17FE008D301C /* HealthViewController.xib in Resources */,
 				5EC0C818254DB6100021A42A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +261,7 @@
 				5E9F2BBB254F65E4005CC0C9 /* UIImageView+Extension.swift in Sources */,
 				5E9F2BA5254F31CF005CC0C9 /* String+Extension.swift in Sources */,
 				5E9F2BA2254F2D78005CC0C9 /* Song.swift in Sources */,
+				5E9F2BC0254F7EA3005CC0C9 /* HealthData.swift in Sources */,
 				5E9F2BA8254F532D005CC0C9 /* MusicPlayer.swift in Sources */,
 				63000029254F6BFE00F569B5 /* ServicesViewController.swift in Sources */,
 				5E462350254E09C7008D301C /* UIViewController+Extension.swift in Sources */,
@@ -286,7 +275,6 @@
 				63000020254F59E900F569B5 /* ConfigurationViewController.swift in Sources */,
 				5EC0C813254DB6100021A42A /* SceneDelegate.swift in Sources */,
 				5E9F2BB8254F62FC005CC0C9 /* SongIA.swift in Sources */,
-				5E462359254E17FE008D301C /* HealthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
