@@ -12,14 +12,27 @@ import UIKit
 
 class HealthViewController: UIViewController {
     let healthStore = HKHealthStore()
+    let storeIds: [String] = [ "ID from earlier"]
+
+    let player = MPMusicPlayerController.applicationMusicPlayer
+    lazy var queue  = MPMusicPlayerStoreQueueDescriptor(storeIDs: storeIds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        player.prepareToPlay()
+        
         SKCloudServiceController.requestAuthorization { status in
             if status == .authorized {
-                MusicService.shared.searchAppleMusic("shallow") { songs in
-                    print(songs)
+                MusicService.shared.searchAppleMusic("thunder") { songs in
+                    
+                    self.queue.storeIDs = songs.map(\.id)
+                    
+                    
+
+                    self.player.setQueue(with: self.queue)
+                    self.player.play()
+//                    print(songs)
                 }
             }
         }
