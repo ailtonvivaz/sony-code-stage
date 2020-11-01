@@ -22,12 +22,20 @@ class PlayingViewController: UIViewController {
         setupTheme()
         
         MusicPlayer.shared.onChangeSong = { song in
-            print(song)
+            DispatchQueue.main.async {
+                self.coverImageView.setImageBy(url: song.coverURL)
+                self.songNameLabel.text = song.name
+                self.songArtistLabel.text = song.artistName
+            }
         }
         
         MusicPlayer.shared.onChangeNextSong = { song in
-            print(song)
+            DispatchQueue.main.async {
+                self.nextCoverImageView.setImageBy(url: song.coverURL)
+            }
         }
+        
+        MusicPlayer.shared.search()
     }
 
     func setupTheme() {

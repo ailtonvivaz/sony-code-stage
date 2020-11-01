@@ -11,4 +11,8 @@ struct Song: Decodable {
     var name: String
     var artistName: String
     var artworkURL: String
+    
+    var coverURL: String {
+        artworkURL.replacingOccurrences(of: "{w}", with: "300").replacingOccurrences(of: "{h}", with: "300")
+    }
 }

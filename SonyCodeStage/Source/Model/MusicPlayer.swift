@@ -7,6 +7,7 @@
 
 import Foundation
 import MediaPlayer
+import StoreKit
 
 class MusicPlayer {
     static let shared = MusicPlayer()
@@ -18,10 +19,10 @@ class MusicPlayer {
 
     private let player = MPMusicPlayerController.applicationMusicPlayer
     private lazy var queue = MPMusicPlayerStoreQueueDescriptor(storeIDs: [])
-    
-    var currentSong: Song? = nil
-    var nextSong: Song? = nil
-    
+
+    var currentSong: Song?
+    var nextSong: Song?
+
     var onChangeSong: (Song) -> Void = { _ in }
     var onChangeNextSong: (Song) -> Void = { _ in }
 
@@ -30,7 +31,7 @@ class MusicPlayer {
     func getNextSong() -> Song {
         return Song(id: "", name: "", artistName: "", artworkURL: "")
     }
-    
+
     func playPause() {
         if player.playbackState == .playing {
             player.pause()
@@ -38,12 +39,29 @@ class MusicPlayer {
             player.play()
         }
     }
-    
+
     func next() {
         currentSong = nextSong
         nextSong = getNextSong()
-        
+
         onChangeSong(currentSong!)
         onChangeNextSong(nextSong!)
+    }
+
+    func search() {
+        SKCloudServiceController.requestAuthorization { status in
+            if status == .authorized {
+                MusicService.shared.searchAppleMusic("pessimo negocio") { songs in
+                    self.currentSong = songs[0]
+                    self.onChangeSong(self.currentSong!)
+                    
+                    print(songs[0])
+                    self.queue.storeIDs = songs.map(\.id)
+                    self.player.setQueue(with: self.queue)
+                    self.player.play()
+//                    print(songs)
+                }
+            }
+        }
     }
 }
