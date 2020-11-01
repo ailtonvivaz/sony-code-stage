@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bpmStack: UIStackView!
     @IBOutlet weak var thumbView : UIView!
     @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var moodTaskButton: UIButton!
 
     @IBOutlet weak var stepLabel: UILabel!
 
@@ -48,8 +49,20 @@ class MainViewController: UIViewController {
         thumbImageView.image = UIImage(named: "logo")?.withRenderingMode(.alwaysTemplate)
 
         setupProgress(progress: 0.5)
-
         stepLabel.isHidden = true
+
+        setupMoodTask()
+    }
+
+    func setupMoodTask() {
+        if let mood = MusicPlayer.shared.mood, let task = MusicPlayer.shared.task {
+            moodTaskButton.setTitle("\(task.rawValue) & \(mood.rawValue)", for: .normal)
+        } else {
+            DispatchQueue.main.async {
+                let vc = ConfigurationViewController()
+                self.present(vc, animated: true)
+            }
+        }
     }
 
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {

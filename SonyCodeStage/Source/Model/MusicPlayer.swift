@@ -13,7 +13,10 @@ struct SongIA {
 }
 
 class MusicPlayer {
-    let shared = MusicPlayer()
+    static let shared = MusicPlayer()
+
+    var mood: Mood?
+    var task: Task?
     
     private init() {}
     

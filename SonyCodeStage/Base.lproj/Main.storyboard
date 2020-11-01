@@ -113,6 +113,13 @@
                                 <color key="textColor" name="tint2"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCn-kp-ZE0">
+                                <rect key="frame" x="20" y="54" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" name="tint2"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hOr-Ot-a1O"/>
                         <color key="backgroundColor" name="background"/>
@@ -125,12 +132,14 @@
                             <constraint firstAttribute="trailing" secondItem="JBk-xw-7ci" secondAttribute="trailing" id="QUF-mO-l4E"/>
                             <constraint firstItem="j1c-OS-4aG" firstAttribute="centerX" secondItem="JBk-xw-7ci" secondAttribute="centerX" id="Xcz-f0-Env"/>
                             <constraint firstItem="hOr-Ot-a1O" firstAttribute="bottom" secondItem="o0T-yD-qVX" secondAttribute="centerY" constant="-20" id="bnJ-s2-UXu"/>
+                            <constraint firstItem="TCn-kp-ZE0" firstAttribute="top" secondItem="hOr-Ot-a1O" secondAttribute="top" constant="10" id="bvd-nM-aZG"/>
                             <constraint firstItem="hOr-Ot-a1O" firstAttribute="bottom" secondItem="8hA-Or-SkR" secondAttribute="bottom" constant="-10" id="cLQ-79-U8t"/>
                             <constraint firstItem="o0T-yD-qVX" firstAttribute="width" secondItem="yri-YC-ZS5" secondAttribute="width" multiplier="0.6" id="ePb-4J-amD"/>
                             <constraint firstItem="hOr-Ot-a1O" firstAttribute="bottom" secondItem="Q1J-PP-62Z" secondAttribute="centerY" id="jGC-7p-HyA"/>
                             <constraint firstItem="JBk-xw-7ci" firstAttribute="top" secondItem="yri-YC-ZS5" secondAttribute="top" id="lSj-Yd-U0d"/>
                             <constraint firstItem="Q1J-PP-62Z" firstAttribute="centerX" secondItem="hOr-Ot-a1O" secondAttribute="centerX" id="nh6-bm-KxH"/>
                             <constraint firstItem="8hA-Or-SkR" firstAttribute="width" secondItem="0F0-jd-ncL" secondAttribute="width" id="ogT-0S-FIM"/>
+                            <constraint firstItem="TCn-kp-ZE0" firstAttribute="leading" secondItem="hOr-Ot-a1O" secondAttribute="leading" constant="20" id="r90-NL-1v4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -139,6 +148,7 @@
                         <outlet property="circleView" destination="o0T-yD-qVX" id="mh6-sF-QjG"/>
                         <outlet property="innerCircleView" destination="0F0-jd-ncL" id="b03-Zv-Zjs"/>
                         <outlet property="logoImage" destination="ZwP-lS-LnW" id="AEC-fd-54H"/>
+                        <outlet property="moodTaskButton" destination="TCn-kp-ZE0" id="ONP-nR-c7T"/>
                         <outlet property="stepLabel" destination="j1c-OS-4aG" id="1aE-A4-MVu"/>
                         <outlet property="thumbImageView" destination="w5J-Ef-joi" id="Xrs-d9-xBJ"/>
                         <outlet property="thumbView" destination="Q1J-PP-62Z" id="1zJ-4C-swk"/>

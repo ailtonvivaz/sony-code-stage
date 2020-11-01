@@ -19,7 +19,6 @@ class PlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Ouvindo"
-        self.navigationItem.setHidesBackButton(true, animated: false)
 
         setupTheme()
     }
@@ -36,6 +35,7 @@ class PlayingViewController: UIViewController {
 
     init() {
         super.init(nibName: "\(Self.self)", bundle: nil)
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     required init?(coder: NSCoder) {

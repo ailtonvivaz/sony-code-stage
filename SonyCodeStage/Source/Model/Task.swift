@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Task: String {
+enum Task: String, CaseIterable {
     case work = "Trabalhando"
     case study = "Estudando"
     case meditation = "Meditando"
