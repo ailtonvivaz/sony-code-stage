@@ -27,8 +27,17 @@ class MusicPlayer {
 
     var onChangeSong: (Song) -> Void = { _ in }
     var onChangeNextSong: (Song) -> Void = { _ in }
+    var onChangeBPM: (Int) -> Void = { _ in }
     
     var songIndex = 0
+    
+    var bpms = [82, 93, 86, 75]
+    var bpmIndex = 0
+    var bpm = 82 {
+        didSet {
+            onChangeBPM(bpm)
+        }
+    }
     
     // Sons para teste
     var songs: [Song] = [
@@ -46,11 +55,23 @@ class MusicPlayer {
         
         self.queue.storeIDs = ["1437272596", "1511746011", "1201885833"]
         self.player.setQueue(with: self.queue)
+        self.updateBPM()
+    }
+    
+    func updateBPM() {
+        bpm = bpms[bpmIndex]
+        bpmIndex += 1
     }
     
     private func updateSongs() {
         onChangeSong(currentSong!)
         onChangeNextSong(nextSong!)
+        
+        if [0, 2, 4].contains(songIndex){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                self.updateBPM()
+            }
+        }
     }
     
     func updateNextSong() {

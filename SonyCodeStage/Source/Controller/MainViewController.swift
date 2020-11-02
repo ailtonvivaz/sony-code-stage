@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
     @IBOutlet var thumbView: UIView!
     @IBOutlet var thumbImageView: UIImageView!
     @IBOutlet var moodTaskButton: UIButton!
-
+    @IBOutlet weak var bpmLabel: UILabel!
+    
     @IBOutlet var stepLabel: UILabel!
 
     var step: Int = 0 {
@@ -48,6 +49,12 @@ class MainViewController: UIViewController {
 
         setupProgress(progress: 0.5)
         stepLabel.isHidden = true
+        
+        MusicPlayer.shared.onChangeBPM = { bpm in
+            DispatchQueue.main.async {
+                self.bpmLabel.text = "\(bpm)"
+            }
+        }
 
         setupMoodTask()
     }
