@@ -27,14 +27,47 @@ class MusicPlayer {
 
     var onChangeSong: (Song) -> Void = { _ in }
     var onChangeNextSong: (Song) -> Void = { _ in }
+    
+    var songIndex = 0
+    
+    // Sons para teste
+    var songs: [Song] = [
+        Song(id: "1437272596", name: "Buzina", artistName: "Pabllo Vittar", artworkURL: "https://is2-ssl.mzstatic.com/image/thumb/Music128/v4/25/ce/58/25ce58dd-021e-5b7d-32cc-61158f7dc563/886447240083.jpg/{w}x{h}bb.jpeg"),
+        Song(id: "1201885833", name: "Location", artistName: "Khalid", artworkURL: "https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/f2/6b/76/f26b763b-2f06-f4d4-c775-bbf3cb459d84/886446361239.jpg/{w}x{h}bb.jpeg"),
+        Song(id: "1511746011", name: "Sem Limites", artistName: "WC no Beat, Ludmilla & Vitão", artworkURL: "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/b1/1f/99/b11f99bd-2e21-5552-fd64-f0a3e0788814/886448459545.jpg/{w}x{h}bb.jpeg"),
+        Song(id: "1437272596", name: "Buzina", artistName: "Pabllo Vittar", artworkURL: "https://is2-ssl.mzstatic.com/image/thumb/Music128/v4/25/ce/58/25ce58dd-021e-5b7d-32cc-61158f7dc563/886447240083.jpg/{w}x{h}bb.jpeg"),
+        Song(id: "1201885833", name: "Location", artistName: "Khalid", artworkURL: "https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/f2/6b/76/f26b763b-2f06-f4d4-c775-bbf3cb459d84/886446361239.jpg/{w}x{h}bb.jpeg"),
+        Song(id: "1437272596", name: "Buzina", artistName: "Pabllo Vittar", artworkURL: "https://is2-ssl.mzstatic.com/image/thumb/Music128/v4/25/ce/58/25ce58dd-021e-5b7d-32cc-61158f7dc563/886447240083.jpg/{w}x{h}bb.jpeg"),
+    ]
 
-    private init() {}
+    private init() {
+        currentSong = songs[0]
+        nextSong = songs[1]
+        
+        self.queue.storeIDs = ["1437272596", "1511746011", "1201885833"]
+        self.player.setQueue(with: self.queue)
+    }
+    
+    private func updateSongs() {
+        onChangeSong(currentSong!)
+        onChangeNextSong(nextSong!)
+    }
+    
+    func updateNextSong() {
+        if songIndex == 0 || songIndex == 2 {
+            songIndex += 1
+        }
+        nextSong = songs[songIndex + 1]
+        onChangeNextSong(nextSong!)
+    }
 
     func getNextSong() -> Song {
-        return Song(id: "", name: "", artistName: "", artworkURL: "")
+        songIndex += 1
+        return songs[songIndex + 1]
     }
 
     func playPause() {
+        updateSongs()
         if isPlaying {
             player.pause()
         } else {
@@ -45,25 +78,32 @@ class MusicPlayer {
     func next() {
         currentSong = nextSong
         nextSong = getNextSong()
-
-        onChangeSong(currentSong!)
-        onChangeNextSong(nextSong!)
+        updateSongs()
+        player.skipToNextItem()
     }
 
     func search() {
-        SKCloudServiceController.requestAuthorization { status in
-            if status == .authorized {
-                MusicService.shared.searchAppleMusic("pessimo negocio") { songs in
-                    self.currentSong = songs[0]
-                    self.onChangeSong(self.currentSong!)
-                    
-                    print(songs[0])
-                    self.queue.storeIDs = songs.map(\.id)
-                    self.player.setQueue(with: self.queue)
-                    self.player.play()
-//                    print(songs)
-                }
-            }
-        }
+        
+        
+//        self.onChangeSong(self.currentSong!)
+//
+//        print(songs[0])
+//        self.queue.storeIDs = [self.currentSong!.id]
+//        self.player.setQueue(with: self.queue)
+//        self.player.play()
+//        SKCloudServiceController.requestAuthorization { status in
+//            if status == .authorized {
+//                MusicService.shared.searchAppleMusic("location khalid") { songs in
+//                    self.currentSong = songs[0]
+//                    self.onChangeSong(self.currentSong!)
+//
+//                    print(songs[0])
+//                    self.queue.storeIDs = songs.map(\.id)
+//                    self.player.setQueue(with: self.queue)
+//                    self.player.play()
+////                    print(songs)
+//                }
+//            }
+//        }
     }
 }

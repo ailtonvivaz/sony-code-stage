@@ -10,19 +10,19 @@ import UIKit
 class MainViewController: UIViewController {
     var gradientLayer: CAGradientLayer!
 
-    @IBOutlet weak var circleView: UIView!
-    @IBOutlet weak var innerCircleView: UIView!
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet var circleView: UIView!
+    @IBOutlet var innerCircleView: UIView!
+    @IBOutlet var logoImage: UIImageView!
 
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bpmStack: UIStackView!
-    @IBOutlet weak var thumbView : UIView!
-    @IBOutlet weak var thumbImageView: UIImageView!
-    @IBOutlet weak var moodTaskButton: UIButton!
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet var bpmStack: UIStackView!
+    @IBOutlet var thumbView: UIView!
+    @IBOutlet var thumbImageView: UIImageView!
+    @IBOutlet var moodTaskButton: UIButton!
 
-    @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet var stepLabel: UILabel!
 
-    var step : Int = 0 {
+    var step: Int = 0 {
         didSet {
             if oldValue != self.step {
                 setupStep(step: step)
@@ -32,15 +32,13 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bpmStack.alpha = 0
-        self.thumbView.isHidden = true
+        bpmStack.alpha = 0
+        thumbView.isHidden = true
 
         setupGradient()
         setupTheme()
 
         bottomConstraint.constant = view.frame.height/2
-
-        setupPulseAnimation()
 
         circleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleNext)))
 
@@ -52,6 +50,11 @@ class MainViewController: UIViewController {
         stepLabel.isHidden = true
 
         setupMoodTask()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupPulseAnimation()
     }
 
     func setupMoodTask() {
@@ -73,27 +76,28 @@ class MainViewController: UIViewController {
 
     func setupProgress(progress: CGFloat) {
         let minAngle = CGFloat(5.0).degreesToRadians
-        let maxAngle = CGFloat.pi-minAngle
+        let maxAngle = CGFloat.pi - minAngle
         let angle = min(max(minAngle, progress * CGFloat.pi), maxAngle)
         let y = sin(angle) * ((innerCircleView.frame.height + thumbView.frame.width/2)/2)
         let x = cos(angle) * ((innerCircleView.frame.width + thumbView.frame.width/2)/2)
         thumbView.transform = CGAffineTransform(translationX: -x, y: -y)
 
         let step = (maxAngle - minAngle)/4
-        self.step = Int(round((angle - minAngle) / step))
+        self.step = Int(round((angle - minAngle)/step))
     }
 
     func setupStep(step: Int) {
-
         switch step {
         case 0:
             thumbImageView.tintColor = UIColor(named: "tint2")
             stepLabel.text = "Diminua bastante meu ritmo"
+            MusicPlayer.shared.updateNextSong()
         case 1:
             thumbImageView.tintColor = UIColor(named: "color1")
             stepLabel.text = "Diminua meu ritmo"
+            MusicPlayer.shared.updateNextSong()
         case 2:
-            //Mantenha ritmo
+            // Mantenha ritmo
             thumbImageView.tintColor = UIColor(named: "color2")
             stepLabel.text = "Mantenha meu ritmo"
         case 3:
@@ -121,12 +125,13 @@ class MainViewController: UIViewController {
                 self.stepLabel.alpha = 0
             }
         }
-
     }
 
     @objc func handleNext() {
         let vc = PlayingViewController()
-        (self.children.first as? UINavigationController)?.pushViewController(vc, animated: true)
+        (children.first as? UINavigationController)?.pushViewController(vc, animated: true)
+
+        _ = circleView.gestureRecognizers?.compactMap { $0 }.map { self.circleView.removeGestureRecognizer($0) }
 
         bottomConstraint.constant = 0
         UIView.animate(withDuration: 1) {
@@ -143,7 +148,6 @@ class MainViewController: UIViewController {
                 self.bpmStack.alpha = 1
             }
         }
-
     }
 
     func setupTheme() {
@@ -184,13 +188,11 @@ class MainViewController: UIViewController {
         pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         pulseAnimation.autoreverses = true
         pulseAnimation.repeatCount = .greatestFiniteMagnitude
-        self.innerCircleView.layer.add(pulseAnimation, forKey: "pulseAnimation")
+        innerCircleView.layer.add(pulseAnimation, forKey: "pulseAnimation")
     }
-    
+
     @IBAction func onClickMood(_ sender: Any) {
         let vc = ConfigurationViewController()
-        self.present(vc, animated: true)
+        present(vc, animated: true)
     }
-    
 }
-

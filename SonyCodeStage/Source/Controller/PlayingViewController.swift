@@ -24,6 +24,7 @@ class PlayingViewController: UIViewController {
         
         MusicPlayer.shared.onChangeSong = { song in
             DispatchQueue.main.async {
+                self.coverImageView.image = UIImage()
                 self.coverImageView.setImageBy(url: song.coverURL)
                 self.songNameLabel.text = song.name
                 self.songArtistLabel.text = song.artistName
@@ -36,7 +37,7 @@ class PlayingViewController: UIViewController {
             }
         }
         
-        MusicPlayer.shared.search()
+        MusicPlayer.shared.playPause()
     }
 
     func setupTheme() {
